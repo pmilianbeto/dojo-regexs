@@ -89,6 +89,21 @@ public class Exo1Test {
     }
 
     @Test
+    public void matchWord() throws Exception {
+        String regex = new Exo1().matchWord();
+
+        assertTrue("HELP?".matches(regex));
+        assertTrue("eztezytzegf.HELP!!hgerergbregh".matches(regex));
+        assertTrue("eztezytzegf?HELP hgerergbregh".matches(regex));
+
+        assertFalse("eztezytzegfHELPhgerergbregh".matches(regex));
+        assertFalse("HELPP".matches(regex));
+        assertFalse("09HELP".matches(regex));
+
+        validateMedal(MedalId.MATCH_SIMPLE_WORDS, true);
+    }
+
+    @Test
     public void matchDoubleLetterOccurence() throws Exception {
         String regex = new Exo1().matchDoubleLetterOccurence();
         assertTrue("bb".matches(regex));
@@ -179,7 +194,7 @@ public class Exo1Test {
 
     @Test
     public void solved() throws Exception {
-        int count = new Exo2().solve();
+        int count = new Exo1().solve();
         assertEquals(258, count);
 
         validateMedal(MedalId.EXO2, true);

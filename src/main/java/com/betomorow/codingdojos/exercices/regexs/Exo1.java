@@ -26,6 +26,7 @@ public class Exo1 {
      * Do not match :
      * "123"
      * "aaa"
+     *
      */
     public String matchLetters() {
         return "";
@@ -39,6 +40,7 @@ public class Exo1 {
      * Do not match :
      * "abcde"
      * "Cdb"
+     *
      */
     public String matchWithoutLetter() {
         return "";
@@ -69,8 +71,27 @@ public class Exo1 {
      * "Something went wrong "
      * "I have 10 pennies"
      * ""
+     *
+     * tip: \w also matches numbers
      */
     public String matchWords() {
+        return "";
+    }
+
+    /**
+     * Match :
+     * "HELP?"
+     * "eztezytzegf.HELP!!hgerergbregh"
+     * "eztezytzegf?HELP hgerergbregh"
+     *
+     * Do not match:
+     * "eztezytzegfHELPhgerergbregh"
+     * "HELPP"
+     * "09HELP"
+     *
+     * tip: boundaries are important
+     */
+    public String matchWord() {
         return "";
     }
 
@@ -84,6 +105,8 @@ public class Exo1 {
      * "abc"
      * "Cdbc"
      * "11"
+     *
+     * tip: match subpattern
      */
     public String matchDoubleLetterOccurence() {
         return "";
@@ -97,6 +120,8 @@ public class Exo1 {
      * Do not match :
      * "this is the forbidden word"
      * "can't touch this"
+     *
+     * tip: use a lookahead / lookbehind
      */
     public String matchDoesntContainWord() {
         return "";
@@ -141,13 +166,13 @@ public class Exo1 {
      * "always thought so.) Then"
      *
      * Do not match :
-     * in the U.S.A., people often
-     * John?", he often thought, but
-     * weighed 17.5 grams
-     * well ... they'd better not
-     * A.I. has long been a very
-     * like that", he thought
-     * but W. G. Grace never had much
+     * "in the U.S.A., people often"
+     * "John?", he often thought, but"
+     * "weighed 17.5 grams"
+     * "well ... they'd better not"
+     * "A.I. has long been a very"
+     * "like that", he thought"
+     * "but W. G. Grace never had much"
      *
      */
     public String matchesSentenceEnd() {
@@ -167,6 +192,7 @@ public class Exo1 {
      * "@aaaa.frfrfrf"
      * "foobar@aaaa"
      * "foobar@"
+
      */
     public String isEmail() {
         return "";
