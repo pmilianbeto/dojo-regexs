@@ -150,6 +150,7 @@ public class Exo1 {
      * "space gruhreiguh rhigueh g"
      * "grehigeh uzhgireugh eSPACEezgr"
      *
+     * tip: how to match case insensitive ?
      */
     public String hasSpecialWordSurroundedBySpace() {
         return "";
