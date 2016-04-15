@@ -10,7 +10,8 @@ public enum MedalId {
     MATCH_WORD_NOT_FOLLOWED("id7"),
     MATCH_ASTRONAUT("id8"),
     MATCH_SENTENCE_END("id9"),
-    MATCH_EMAIL("id10");
+    MATCH_EMAIL("id10"),
+    EXO2("id11");
 
     private String value;
 

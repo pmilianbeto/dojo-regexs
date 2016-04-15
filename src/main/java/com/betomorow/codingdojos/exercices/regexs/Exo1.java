@@ -1,6 +1,21 @@
-package com.betomorow.codingdojos.exercices.exo1;
+package com.betomorow.codingdojos.exercices.regexs;
+
+import com.google.common.base.Charsets;
+import com.google.common.io.Files;
+import com.google.common.io.Resources;
+
+import java.io.File;
+import java.util.List;
 
 public class Exo1 {
+
+    /*
+     * Pour vous aider à composer vos regexs :
+     * https://regex101.com/
+     * En haut à droite de la page, vous avez l'explication littérale de la regex.
+     * En bas à droite de la page, vous avez l'ensemble des éléments que vous pouvez inclure dans votre regex.
+     */
+
 
     /**
      * Match :
@@ -157,6 +172,18 @@ public class Exo1 {
         return "";
     }
 
+    /**
+     * Count how many "good" strings there are in the file strings_input.txt ?
+     *
+     * A good string has the following properties :
+     *  - it contains at least three vowels (aeiou only)
+     *  - it contains at least one letter that appears twice in a row, like "xx", "abcdde"
+     *  - it does not contain the strings "ab", "cd", "pq" or "xy"
+     */
+    public int solve() throws Exception {
+        List<String> strings = Files.readLines(new File(Resources.getResource("strings_input.txt").toURI()), Charsets.UTF_8);
+        return 0;
+    }
 
     // Pour ceux qui ont fini : https://regexcrossword.com/
 }

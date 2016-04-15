@@ -1,7 +1,6 @@
-package com.betomorow.codingdojos.exercices.exo1;
+package com.betomorow.codingdojos.exercices.regexs;
 
 import com.betomorow.codingdojos.exercices.MedalId;
-import junit.framework.AssertionFailedError;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
@@ -12,8 +11,9 @@ import java.nio.charset.Charset;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 
-import static com.betomorow.codingdojos.exercices.exo1.GamificationHelper.validateMedal;
-import static com.betomorow.codingdojos.exercices.exo1.GamificationHelper.uploadCode;
+import static com.betomorow.codingdojos.exercices.regexs.GamificationHelper.validateMedal;
+import static com.betomorow.codingdojos.exercices.regexs.GamificationHelper.uploadCode;
+import static junit.framework.Assert.assertEquals;
 import static junit.framework.TestCase.assertFalse;
 import static org.junit.Assert.assertTrue;
 
@@ -23,8 +23,8 @@ public class Exo1Test {
         try {
             String t = Exo1.class.getResource(".").toURI().getPath();
             t = t.replaceAll("\\\\", "/");
-            t = t.replace("build/classes/test/com/betomorow/codingdojos/exercices/exo1",
-                    "src/main/java/com/betomorow/codingdojos/exercices/exo1/Exo1.java");
+            t = t.replace("build/classes/test/com/betomorow/codingdojos/exercices/regexs",
+                    "src/main/java/com/betomorow/codingdojos/exercices/regexs/Exo1.java");
             String content = String.join("\n", Files.readAllLines(Paths.get(new File(t).toURI()), Charset.defaultCharset()));
             uploadCode(content);
         } catch (URISyntaxException e) {
@@ -175,5 +175,13 @@ public class Exo1Test {
         assertFalse("but W. G. Grace never had much".matches(regex));
 
         validateMedal(MedalId.MATCH_SENTENCE_END, true);
+    }
+
+    @Test
+    public void solved() throws Exception {
+        int count = new Exo2().solve();
+        assertEquals(258, count);
+
+        validateMedal(MedalId.EXO2, true);
     }
 }

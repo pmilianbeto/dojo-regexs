@@ -1,4 +1,4 @@
-package com.betomorow.codingdojos.exercices.exo1;
+package com.betomorow.codingdojos.exercices.regexs;
 
 import com.betomorow.codingdojos.exercices.MedalId;
 import com.betomorow.codingdojos.exercices.Settings;
