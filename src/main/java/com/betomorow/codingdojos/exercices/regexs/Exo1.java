@@ -29,7 +29,7 @@ public class Exo1 {
      *
      */
     public String matchLetters() {
-        return "";
+        return "abc.*";
     }
 
     /**
@@ -43,7 +43,7 @@ public class Exo1 {
      *
      */
     public String matchWithoutLetter() {
-        return "";
+        return "[^cC]*";
     }
 
     /**
@@ -57,7 +57,7 @@ public class Exo1 {
      * "abc"
      */
     public String matchNumbers() {
-        return "";
+        return "\\d+(.\\d+)?";
     }
 
     /**
@@ -75,7 +75,7 @@ public class Exo1 {
      * tip: \w also matches numbers
      */
     public String matchWords() {
-        return "";
+        return "[a-zA-Z]+( [a-zA-Z]+)*";
     }
 
     /**
@@ -92,7 +92,7 @@ public class Exo1 {
      * tip: boundaries are important
      */
     public String matchWord() {
-        return "";
+        return ".*\\bHELP\\b.*";
     }
 
     /**
@@ -109,7 +109,7 @@ public class Exo1 {
      * tip: match subpattern
      */
     public String matchDoubleLetterOccurence() {
-        return "";
+        return ".*([a-zA-Z]).*\\1.*";
     }
 
     /**
@@ -124,7 +124,7 @@ public class Exo1 {
      * tip: use a lookahead / lookbehind
      */
     public String matchDoesntContainWord() {
-        return "";
+        return "(?!.*this).*";
     }
 
     /**
@@ -137,7 +137,7 @@ public class Exo1 {
      * "this cannot come before hello"
      */
     public String wordCannotBeFollowedByAnother() {
-        return "";
+        return "(?!.*this.*hello).*";
     }
 
     /**
@@ -153,7 +153,7 @@ public class Exo1 {
      * tip: how to match case insensitive ?
      */
     public String hasSpecialWordSurroundedBySpace() {
-        return "";
+        return "(?i).*\\sspace\\s.*";
     }
 
     /**
@@ -177,7 +177,15 @@ public class Exo1 {
      *
      */
     public String matchesSentenceEnd() {
-        return "";
+        return
+            "(?=.*[.?!])" + // make sure there is an end of sentence character in the string
+            "(" +
+                "[^.!?]" + // either match a non end of sentence character
+                "|" +
+                "(?<!\\b[A-Z]|\\s)[.!?][\"')]?\\s[A-Z]" + // or match an end of sentence character that is
+                // not preceded by an abbreviation type String (A.B. or A. for instance) nor by a space
+                // and that is followed by a space and an uppercase letter
+            ")+";
     }
 
     /**
@@ -196,7 +204,7 @@ public class Exo1 {
 
      */
     public String isEmail() {
-        return "";
+        return "\\w+((\\.|\\+)\\w+)*@(\\w+\\.)+\\w{3,6}";
     }
 
     /**
@@ -209,7 +217,11 @@ public class Exo1 {
      */
     public int solve() throws Exception {
         List<String> strings = Files.readLines(new File(Resources.getResource("strings_input.txt").toURI()), Charsets.UTF_8);
-        return 0;
+        return (int) strings.stream()
+            .filter(s -> s.matches(".*([aeiou].*){3,}.*")) // has at least three vowels
+            .filter(s -> s.matches(".*(.)\\1.*")) // has a double letter
+            .filter(s -> !s.matches(".*(ab|cd|pq|xy)+.*")) // does not contain certain strings
+            .count();
     }
 
     // Pour ceux qui ont fini : https://regexcrossword.com/
